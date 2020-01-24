@@ -4,13 +4,14 @@
   "description": "Bootstrap components for Plotly Dash",
   "main": "lib/dash-bootstrap-components.min.js",
   "scripts": {
-    "build-dist": "npm run clean:py && npm run build:py && webpack --config=webpack/config.dist.js",
+    "build-dist": "npm run clean:py && npm run build:py && npm run build:r && webpack --config=webpack/config.dist.js",
     "clean": "npm run clean:py && npm run clean:lib",
     "clean:py": "mkdirp dash_bootstrap_components/_components && rimraf dash_bootstrap_components/_components",
     "clean:lib": "mkdirp lib && rimraf lib/",
     "demo": "webpack-dev-server --hot --inline --port=8888 --config=webpack/config.demo.js",
     "build:lib": "webpack --config=webpack/config.lib.js",
     "build:py": "mkdirp dash_bootstrap_components/_components && dash-generate-components ./src/components dash_bootstrap_components/_components && move-cli dash_bootstrap_components/_components/_imports_.py dash_bootstrap_components/_components/__init__.py",
+    "build:r": "mkdirp dash_bootstrap_components_r && dash-generate-components ./src/components dash_bootstrap_components/_components --r-prefix 'dbc'",
     "build:css": "grunt build",
     "grunt": "grunt",
     "format": "prettier src/**/*.js --write",
@@ -26,7 +27,7 @@
     "LICENSE.txt",
     "README.md"
   ],
-  "author": "Faculty",
+  "author": "Faculty <opensource@faculty.ai>",
   "license": "Apache-2.0",
   "devDependencies": {
     "@babel/core": "^7.7.7",

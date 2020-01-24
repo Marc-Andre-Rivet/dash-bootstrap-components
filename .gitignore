@@ -10,3 +10,9 @@ changelog.tmp
 dash_bootstrap_components/_components/
 .sass-cache
 .vscode
+
+inst
+man
+R
+DESCRIPTION
+NAMESPACE
